@@ -14,10 +14,13 @@ namespace GAME2
         private static Dictionary<ScreenLocal, Screen> screenDic;
         private static Screen curSceen;
         public static ScreenLocal screen;
+        private static Player player;
+        public static Player Player { get { return player; } }
         public static void Start()
         {
             Console.CursorVisible = false; // 커서 지우기 성공
             gameEnd = false;
+            player = new Player();
 
             screenDic = new Dictionary<ScreenLocal, Screen>();
             screenDic.Add(ScreenLocal.Main,new MainSceen());
@@ -61,6 +64,9 @@ namespace GAME2
             Console.WriteLine(reason);
             Console.WriteLine();
             Console.WriteLine("처음으로 돌아갑니다.");
+            Console.WriteLine("아무키나 눌러주세요");
+            Console.ReadKey(true);
+            ChangeScene(ScreenLocal.Main);
 
         }
         public static void End()
