@@ -31,6 +31,10 @@ namespace GAME2
                 case ConsoleKey.D3:
                     key = ReadingKey.Three;
                     break;
+                case ConsoleKey.NumPad4:
+                case ConsoleKey.D4:
+                    key = ReadingKey.Foer;
+                    break;
                 case ConsoleKey.LeftArrow:
                     key = ReadingKey.Left;
                     break;
@@ -42,6 +46,9 @@ namespace GAME2
                     break;
                 case ConsoleKey.DownArrow:
                     key = ReadingKey.Down;
+                    break;
+                case ConsoleKey.Escape:
+                    Game.EndSwich();
                     break;
 
 

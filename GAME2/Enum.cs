@@ -12,6 +12,6 @@ namespace GAME2
     }
     public enum ReadingKey
     {
-        None, Inben, One, Two, Three, Up, Down, Left, Right
+        None, Inben, One, Two, Three, Foer, Up, Down, Left, Right, ESC
     }
 }

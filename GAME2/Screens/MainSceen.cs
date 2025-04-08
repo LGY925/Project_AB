@@ -31,7 +31,8 @@ namespace GAME2.Screens
             Console.WriteLine("키 설명");
             Console.WriteLine("* 방향키 : 이동");
             Console.WriteLine("* 숫자키 : 선택지 선택");
-            Console.WriteLine("* 인벤토리 : I");
+            Console.WriteLine("* 인벤토리 : I 버튼");
+            Console.WriteLine("* 강제종료 : ESC 버튼");
             Console.ResetColor();
         }
         public override void Result(in ReadingKey key)
@@ -53,6 +54,7 @@ namespace GAME2.Screens
                 case ReadingKey.Three:
                     Game.EndSwich();
                     break;
+
 
             }
         }

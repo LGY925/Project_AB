@@ -16,7 +16,7 @@ namespace GAME2
         public static ScreenLocal screen;
         public static void Start()
         {
-            Console.CursorVisible = false;
+            Console.CursorVisible = false; // 커서 지우기 성공
             gameEnd = false;
 
             screenDic = new Dictionary<ScreenLocal, Screen>();
@@ -45,6 +45,7 @@ namespace GAME2
             curSceen.Enter();
 
         }
+  
         public static void EndSwich()
         {
             gameEnd = true;
