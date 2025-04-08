@@ -11,8 +11,8 @@ namespace GAME2
         public int No;
         public string name;
         protected int effect;
-        protected bool use;
+        public bool use;
         public abstract void Interact(Player player);
-        public abstract void Use();
+        
     }
 }

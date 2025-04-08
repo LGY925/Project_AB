@@ -6,18 +6,18 @@ using System.Threading.Tasks;
 
 namespace GAME2.Items
 {
-    public class RedPotion : Item
+    public class PowerPotion : Item
     {
-        public RedPotion() 
+        public PowerPotion()
         {
-            No = 1;
-            name = "빨간 포션";
-            effect = 10;
+            No = 2;
+            name = "파워 포션";
+            effect = 5;
             use = true;
         }
         public override void Interact(Player player)
         {
-            player.Heal(effect);
+            player.ApUp(effect);
         }
     }
 }
