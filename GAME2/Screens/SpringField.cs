@@ -13,23 +13,23 @@ namespace GAME2.Screens
             name = ScreenLocal.SpringField;
             mapData = new string[]
             {
-             "###########",
-             "#         #",
-             "#         #",
-             "#         #",
-             "#         #",
-             "#         #",
-             "#         #",
-             "#         #",
-             "#         #",
-             "###########",
+             "##########",
+             "#        #",
+             "#        #",
+             "#        #",
+             "#        #",
+             "#        #",
+             "#        #",
+             "#        #",
+             "#        #",
+             "##########",
             };
             map = new bool[10, 10];
-            for (int y = 0; y < mapData.GetLength(0); y++)
+            for (int y = 0; y < map.GetLength(0); y++)
             {
-                for (int x = 0; x < mapData.GetLength(1); x++)
+                for (int x = 0; x < map.GetLength(1); x++)
                 {
-                    map[y, x] = mapData[x][y] == '#' ? false : true;
+                    map[y, x] = mapData[y][x] == '#' ? false : true;
                 }
 
             }

@@ -33,22 +33,22 @@ namespace GAME2.Screens
         private void PrintMap()
         {
             Console.SetCursorPosition(0, 0);
-            for (int y = 0; y < mapData.GetLength(0); y++)
+            for (int y = 0; y < map.GetLength(0); y++)
             {
-                for (int x = 0; x < mapData.GetLength(1); x++)
+                for (int x = 0; x < map.GetLength(1); x++)
                 {
-                    if (map[y,x] = false)
+                    if (map[y,x] == true)
                     {
-                        Console.ForegroundColor = ConsoleColor.DarkYellow;
-                        Console.WriteLine("#");
-                        Console.ResetColor();
+                        Console.Write(' ');
                     }
                     else
                     {
-                        Console.WriteLine();
+                        Console.ForegroundColor = ConsoleColor.DarkYellow;
+                        Console.Write('#');
+                        Console.ResetColor();
                     }
-                    Console.WriteLine();
                 }
+                Console.WriteLine();
             }
             
         }

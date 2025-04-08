@@ -24,7 +24,7 @@ namespace GAME2.Screens
             Console.ResetColor();
             Console.WriteLine();
             Console.WriteLine();
-            Console.WriteLine("1. Go To Map");
+            Console.WriteLine("1. Go To SpringField");
             Console.WriteLine("2. Go To Shop");
             Console.WriteLine("3. Talking NPC");
             Console.WriteLine("4. 메인화면으로");
@@ -45,6 +45,7 @@ namespace GAME2.Screens
             switch (key)
             {
                 case ReadingKey.One:
+                    Game.ChangeScene(ScreenLocal.SpringField);
                     break;
                 case ReadingKey.Two:
                     break;
