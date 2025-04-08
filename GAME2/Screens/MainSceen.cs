@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace GAME2.Screens
 {
-    internal class MainSceen : Screen
+    public class MainSceen : Screen
     {
         private ReadingKey key;
 
-        MainSceen()
+        public MainSceen()
         {
             name = ScreenLocal.Main;
         }

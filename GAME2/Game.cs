@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using GAME2.Screens;
 
 namespace GAME2
 {
@@ -17,6 +18,9 @@ namespace GAME2
             gameEnd = false;
 
             screenDic = new Dictionary<ScreenLocal, Screen>();
+            screenDic.Add(ScreenLocal.Main,new MainSceen());
+
+            curSceen = screenDic[ScreenLocal.Main];
         }
         public static void Run()
         {
