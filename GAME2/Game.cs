@@ -9,12 +9,14 @@ namespace GAME2
 {
     public static class Game
     {
+        
         private static bool gameEnd;
         private static Dictionary<ScreenLocal, Screen> screenDic;
         private static Screen curSceen;
         public static ScreenLocal screen;
         public static void Start()
         {
+            Console.CursorVisible = false;
             gameEnd = false;
 
             screenDic = new Dictionary<ScreenLocal, Screen>();
@@ -32,7 +34,6 @@ namespace GAME2
                 curSceen.Result(key);
                 curSceen.Wait();
                 curSceen.Next();
-                
             }
         }
         public static void ChangeScene(ScreenLocal changeScreen)
