@@ -61,9 +61,15 @@ namespace GAME2
             Console.ResetColor();
         }
 
+        public void Attack(int monsterHp)
+        {
+            Random random = new();
+            int attackDamage = random.Next(ap/2,ap*2);
+            monsterHp -= attackDamage;
+        }
         public void Damage(int monsterAp)
         {
-            cutHp -= monsterAp;
+            cutHp -= monsterAp - dp;
             if (cutHp < 0)
             {
                 Game.GameOver("당신은 죽었습니다");
@@ -80,7 +86,7 @@ namespace GAME2
         }
         public void ApUp(int point)
         {
-            ap += point;
+            ap += point ;
         }
         public void DpUp(int point)
         {
