@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GAME2
 {
-    public enum ScreenLocation
+    public enum ScreenLocal
     {
         Main, Village, Shop, Map, Map2, Map3
     }
