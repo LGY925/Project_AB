@@ -34,8 +34,7 @@ namespace GAME2.Screens.Maps
                 }
             }
             gameObjects = new List<GameObject>();
-            gameObjects.Add(new PotalObject(ScreenLocal.Village, 'V', new Vector(1, 1)));
-
+            gameObjects.Add(new PotalObject(ScreenLocal.Village, 'V', new Vector(2, 1)));
         }
 
         public override void Enter()

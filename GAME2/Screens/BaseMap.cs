@@ -13,16 +13,15 @@ namespace GAME2.Screens
         protected string[] mapData;
         protected bool[,] map;
         protected List<GameObject> gameObjects;
-        
+        protected List<GameObject> oneGameObjects;
 
         public override void Render()
         {
             PrintMap();
             foreach (GameObject go in gameObjects)
             {
-                go.Print();
+                go?.Print();
             }
-
             Game.Player.printPlayer();
 
         }
@@ -30,6 +29,7 @@ namespace GAME2.Screens
         public override void Result(in ReadingKey key)
         {
             this.key = key;
+            
 
         }
         public override void Update()
@@ -44,6 +44,20 @@ namespace GAME2.Screens
         public override void Next()
         {
             Update();
+            foreach (GameObject go in gameObjects)
+            {
+                if (go.position.x == Game.Player.position.x &&
+                     go.position.y == Game.Player.position.y)
+                {
+                    go.Interact(Game.Player);
+                    if (go.isOnce == true)
+                    {
+                        gameObjects.Remove(go);
+                    }
+                    break;
+                }
+            }
+
         }
         private void PrintMap()
         {
