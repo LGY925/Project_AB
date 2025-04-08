@@ -25,6 +25,14 @@ namespace GAME2.Screens
             Console.WriteLine("1. 시작하기");
             Console.WriteLine("2. 세이브(미구현)");
             Console.WriteLine("3. 끝내기");
+
+            Console.WriteLine();
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.WriteLine("키 설명");
+            Console.WriteLine("* 방향키 : 이동");
+            Console.WriteLine("* 숫자키 : 선택지 선택");
+            Console.WriteLine("* 인벤토리 : I");
+            Console.ResetColor();
         }
         public override void Result(in ReadingKey key)
         {
@@ -44,9 +52,6 @@ namespace GAME2.Screens
                     break;
                 case ReadingKey.Three:
                     Game.EndSwich();
-                    break;
-                default:
-                    Console.WriteLine("다시입력해주세요");
                     break;
 
             }
