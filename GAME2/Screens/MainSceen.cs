@@ -48,6 +48,7 @@ namespace GAME2.Screens
             switch (key)
             {
                 case ReadingKey.One:
+                    Game.ChangeScene(ScreenLocal.Village);
                     break;
                 case ReadingKey.Two:
                     break;

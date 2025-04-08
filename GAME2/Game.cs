@@ -21,6 +21,7 @@ namespace GAME2
 
             screenDic = new Dictionary<ScreenLocal, Screen>();
             screenDic.Add(ScreenLocal.Main,new MainSceen());
+            screenDic.Add(ScreenLocal.Village, new MainSceen());
 
             curSceen = screenDic[ScreenLocal.Main];
         }
@@ -39,7 +40,7 @@ namespace GAME2
         public static void ChangeScene(ScreenLocal changeScreen)
         {
             screen = curSceen.name;
-
+            
             curSceen.Exit();
             curSceen = screenDic[changeScreen];
             curSceen.Enter();

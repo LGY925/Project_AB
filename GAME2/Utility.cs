@@ -55,6 +55,13 @@ namespace GAME2
             }
 
         }
+
+        public static void Loding()
+        {
+            Console.WriteLine("잠시만요 로딩중입니다");
+            Console.WriteLine("아무거나 눌러주세요");
+            Console.ReadKey(true);
+        }
     }
 
 
