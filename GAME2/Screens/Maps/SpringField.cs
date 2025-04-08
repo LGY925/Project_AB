@@ -31,9 +31,14 @@ namespace GAME2.Screens.Maps
                 {
                     map[y, x] = mapData[y][x] == '#' ? false : true;
                 }
-
             }
+        }
 
+        public override void Enter()
+        {
+            Game.Player.position = new Vector(1, 1);
+            Game.Player.map = map;
         }
     }
 }
+

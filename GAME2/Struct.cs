@@ -10,7 +10,7 @@ namespace GAME2
     {
         public int x;
         public int y;
-        Vector(int x, int y)
+        public Vector(int x, int y)
         {
             this.x = x;
             this.y = y;

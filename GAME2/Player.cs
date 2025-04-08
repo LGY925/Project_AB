@@ -23,6 +23,7 @@ namespace GAME2
 
         public Player()
         {
+
             maxHp = 100;
             cutHp = MaxHp;
             ap = 5;

@@ -19,6 +19,7 @@ namespace GAME2.Screens
         {
             PrintMap();
 
+           
             Game.Player.printPlayer();
 
         }
@@ -38,7 +39,7 @@ namespace GAME2.Screens
         }
         public override void Next()
         {
-            
+            Update();
         }
         private void PrintMap()
         {
