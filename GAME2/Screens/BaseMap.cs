@@ -13,7 +13,6 @@ namespace GAME2.Screens
         protected string[] mapData;
         protected bool[,] map;
         protected List<GameObject> gameObjects;
-        protected List<GameObject> oneGameObjects;
 
         public override void Render()
         {
@@ -57,7 +56,6 @@ namespace GAME2.Screens
                     break;
                 }
             }
-
         }
         private void PrintMap()
         {
@@ -79,7 +77,17 @@ namespace GAME2.Screens
                 }
                 Console.WriteLine();
             }
-            
+        }
+        protected void Mapping()
+        {
+            map = new bool[10, 10];
+            for (int y = 0; y < map.GetLength(0); y++)
+            {
+                for (int x = 0; x < map.GetLength(1); x++)
+                {
+                    map[y, x] = mapData[y][x] == '#' ? false : true;
+                }
+            }
         }
 
     }

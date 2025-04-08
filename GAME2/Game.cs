@@ -27,6 +27,7 @@ namespace GAME2
             screenDic.Add(ScreenLocal.Main,new MainSceen());
             screenDic.Add(ScreenLocal.Village, new Village());
             screenDic.Add(ScreenLocal.SpringField, new SpringField());
+            screenDic.Add(ScreenLocal.DragonMountain, new DragonMountain());
 
             curSceen = screenDic[ScreenLocal.Main];
         }

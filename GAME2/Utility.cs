@@ -17,7 +17,7 @@ namespace GAME2
             switch (input)
             {
                 case ConsoleKey.I:
-                    key = ReadingKey.Inben; 
+                    key = ReadingKey.Inven; 
                     break;
                 case ConsoleKey.NumPad1:
                 case ConsoleKey.D1:
