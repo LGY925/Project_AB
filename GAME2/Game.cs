@@ -25,6 +25,7 @@ namespace GAME2
             screenDic = new Dictionary<ScreenLocal, Screen>();
             screenDic.Add(ScreenLocal.Main,new MainSceen());
             screenDic.Add(ScreenLocal.Village, new Village());
+            screenDic.Add(ScreenLocal.SpringField, new SpringField());
 
             curSceen = screenDic[ScreenLocal.Main];
         }

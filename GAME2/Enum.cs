@@ -8,7 +8,7 @@ namespace GAME2
 {
     public enum ScreenLocal
     {
-        Main, Village, Shop, Map, Map2, Map3
+        Main, Village, Shop, SpringField, Map2, Map3
     }
     public enum ReadingKey
     {

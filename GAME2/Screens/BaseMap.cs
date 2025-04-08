@@ -47,9 +47,10 @@ namespace GAME2.Screens
                     {
                         Console.WriteLine();
                     }
-
+                    Console.WriteLine();
                 }
             }
+            
         }
 
     }
