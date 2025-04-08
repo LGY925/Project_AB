@@ -26,8 +26,8 @@ namespace GAME2
                 curSceen.Render();
                 Utility.ReadKey(out ReadingKey key);
                 curSceen.Result(key);
-                curSceen.Next();
                 curSceen.Wait();
+                curSceen.Next();
                 
             }
         }
@@ -40,9 +40,29 @@ namespace GAME2
             curSceen.Enter();
 
         }
+        public static void EndSwich()
+        {
+            gameEnd = true;
+        }
+        public static void GameOver(string reason)
+        {
+            Console.Clear();
+            Console.WriteLine("**********************************");
+            Console.WriteLine("*          You Died...           *");
+            Console.WriteLine("**********************************");
+            Console.WriteLine();
+            Console.WriteLine(reason);
+            Console.WriteLine();
+            Console.WriteLine("처음으로 돌아갑니다.");
+
+        }
         public static void End()
         {
-
+            Console.Clear();
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("다시 오시길 기원합니다");
+            Console.WriteLine("수고하셨습니다");
+            Console.ResetColor();
         }
 
     }
