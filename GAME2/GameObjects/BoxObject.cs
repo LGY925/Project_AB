@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GAME2.GameObjects
 {
-    internal class Box
+    internal class BoxObject
     {
     }
 }

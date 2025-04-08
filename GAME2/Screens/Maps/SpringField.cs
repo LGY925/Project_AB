@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using GAME2.GameObjects;
 
 namespace GAME2.Screens.Maps
 {
@@ -32,6 +33,9 @@ namespace GAME2.Screens.Maps
                     map[y, x] = mapData[y][x] == '#' ? false : true;
                 }
             }
+            gameObjects = new List<GameObject>();
+            gameObjects.Add(new PotalObject(ScreenLocal.Village, 'V', new Vector(1, 1)));
+
         }
 
         public override void Enter()

@@ -12,14 +12,17 @@ namespace GAME2.Screens
 
         protected string[] mapData;
         protected bool[,] map;
-
+        protected List<GameObject> gameObjects;
         
 
         public override void Render()
         {
             PrintMap();
+            foreach (GameObject go in gameObjects)
+            {
+                go.Print();
+            }
 
-           
             Game.Player.printPlayer();
 
         }
@@ -27,6 +30,7 @@ namespace GAME2.Screens
         public override void Result(in ReadingKey key)
         {
             this.key = key;
+
         }
         public override void Update()
         {
