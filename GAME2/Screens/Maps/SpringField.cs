@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GAME2.Screens
+namespace GAME2.Screens.Maps
 {
     public class SpringField : BaseMap
     {

@@ -13,6 +13,7 @@ namespace GAME2
         public abstract void Result(in ReadingKey key);
         public abstract void Wait();
         public abstract void Next();
+        public virtual void Update() { }
         public virtual void Enter() { }
         public virtual void Exit() { }
     }

@@ -12,14 +12,24 @@ namespace GAME2.Screens
 
         protected string[] mapData;
         protected bool[,] map;
+
+        
+
         public override void Render()
         {
             PrintMap();
+
+            Game.Player.printPlayer();
+
         }
 
         public override void Result(in ReadingKey key)
         {
-            
+            this.key = key;
+        }
+        public override void Update()
+        {
+            Game.Player.Action(key);
         }
 
         public override void Wait()
