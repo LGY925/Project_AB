@@ -13,6 +13,7 @@ namespace GAME2.Screens
         protected string[] mapData;
         protected bool[,] map;
         protected List<GameObject> gameObjects;
+        protected Stack<ScreenLocal> stack;
 
         public override void Render()
         {
@@ -21,7 +22,7 @@ namespace GAME2.Screens
             {
                 go?.Print();
             }
-            Game.Player.printPlayer();
+            Game.Player.PrintPlayer();
 
         }
 

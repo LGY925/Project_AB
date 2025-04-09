@@ -57,8 +57,16 @@ namespace GAME2
                 position = targetPos;
             }
         }
+        public void PrintStat()
+        {
+            Console.WriteLine("  HP   : {0}/ {1}",cutHp,maxHp);
+            Console.WriteLine("공격력 : {0}",ap);
+            Console.WriteLine("방어력 : {0}",dp);
+            
+        }
 
-        public void printPlayer()
+
+        public void PrintPlayer()
         {
             Console.SetCursorPosition(position.x, position.y);
             Console.ForegroundColor = ConsoleColor.Green;
@@ -66,13 +74,13 @@ namespace GAME2
             Console.ResetColor();
         }
 
-        public void Attack(int monsterHp)
+        public int Attack()
         {
             Random random = new();
             int attackDamage = random.Next(ap/2,ap*2);
-            monsterHp -= attackDamage;
             Console.WriteLine("플레이어가 공격합니다",attackDamage);
             Console.WriteLine("{0} 데미지", attackDamage);
+            return attackDamage;
         }
         public void Damage(int monsterAp)
         {

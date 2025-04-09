@@ -5,49 +5,52 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using GAME2.Items;
+using GAME2.Items.Products;
 
 namespace GAME2
 {
     public class Inventory
     {
         private int size;
-        private int[] items;
-        private Item[] Item;
-        public Item[] ITems {  get{ return Item; }}
+        private int[] itemsCount;
+        public int[] Itemcount {  get { return itemsCount; } }
+        private Item[] item;
+        public Item[] Items {  get{ return item; }}
         private int gold;
         public int Gold { get { return gold; } set { gold = value; } }
+        public List<Product> products;
         public Inventory()
         {
             size = 4;
             gold = 0;
-            items = new int[size];
-            for (int i = 0; i < items.Length; i++) 
+            itemsCount = new int[size];
+            for (int i = 0; i < itemsCount.Length; i++) 
             {
-                items[i] = 0; 
+                itemsCount[i] = 0; 
             }
-            Item = new Item[size];
-            Item[0] = new RedPotion();
-            Item[1] = new DefencePotion();
-            Item[2] = new PowerPotion();
-            Item[3] = new Key();
+            item = new Item[size];
+            item[0] = new RedPotion();
+            item[1] = new DefencePotion();
+            item[2] = new PowerPotion();
+            item[3] = new Key();
             
         }
         public void Add(int item,int rd)
         {
-            items[item] += rd;
-            ITems[item].Add();
+            itemsCount[item] += rd;
+            Items[item].Add();
             Console.WriteLine("{1}개수만큼 증가합니다",rd);
         }
         public void UseAt(int index)
         {
             
-            if (Item[index].use == true)
+            if (item[index].use == true)
             {
-                if (items[index] > 0)
+                if (itemsCount[index] > 0)
                 {
-                    Item[index].Interact(Game.Player);
-                    Console.WriteLine("{0} 사용합니다", Item[index].name);
-                    items[index] -= 1;
+                    item[index].Interact(Game.Player);
+                    Console.WriteLine("{0} 사용합니다", item[index].name);
+                    itemsCount[index] -= 1;
                 }
                 else
                 {
@@ -63,11 +66,18 @@ namespace GAME2
         }
         public void PrintALL()
         {
-            for (int i = 0; i < items.Length; i++)
+            for (int i = 0; i < itemsCount.Length; i++)
             {
-                Console.WriteLine("{0} : {1} 개",Item[i].name,items[i]);
+                Console.WriteLine("{0} : {1} 개",item[i].name,itemsCount[i]);
             }
             Console.WriteLine("Gold : {0}G",gold);
+        }
+        public void PrintProduct()
+        {
+            for (int index = 0; index < products.Count; index++)
+            {
+                Console.WriteLine("{0}. {1} ", index, products[index].name);
+            }
         }
     }
 }

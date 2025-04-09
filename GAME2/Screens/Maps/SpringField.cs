@@ -45,8 +45,14 @@ namespace GAME2.Screens.Maps
             {
                 Game.Player.position = new Vector(8, 8);
             }
+            else if (Game.screen == ScreenLocal.Battle)
+            {
+                Game.Player.position = new Vector(3, 5);
+            }
             Game.Player.map = map;
         }
+
+
     }
 }
 

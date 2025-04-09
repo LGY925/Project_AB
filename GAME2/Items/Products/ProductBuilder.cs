@@ -4,19 +4,26 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GAME2.Items
+namespace GAME2.Items.Products
 {
     public class ProductBuilder
     {
-        public string name;
-        public int No;
+        private string name;
+        private int No;
 
         public ProductBuilder()
         {
             name = "부산물";
             No = 1;
         }
-        
+        public Product Builder()
+        {
+            Product product = new Product();
+            product.name = name;
+            product.No = No;
+            return product;
+
+        }
         public ProductBuilder NameSet(string name)
         { 
             this.name = name; 
@@ -24,7 +31,7 @@ namespace GAME2.Items
         }
         public ProductBuilder NoSet(int no)
         {
-            this.No = no;
+            No = no;
             return this;
         }
         
