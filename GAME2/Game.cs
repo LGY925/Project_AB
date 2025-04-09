@@ -59,6 +59,7 @@ namespace GAME2
         }
         public static void ChangeScene(ScreenLocal changeScreen)
         {
+            Console.Clear();
             screen = curSceen.name;
             stack.Push(screen);
 

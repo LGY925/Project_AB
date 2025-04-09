@@ -18,7 +18,7 @@ namespace GAME2.Screens
         public override void Render()
         {
             Monster = Game.mosterQueue.Peek();
-            Monster.Print();
+            Monster.MonsterInfor();
             Console.WriteLine();
             Game.Player.PrintStat();
             Console.WriteLine();
@@ -58,7 +58,7 @@ namespace GAME2.Screens
         }
         public override void Next()
         {
-            if(Game.mosterQueue.Peek() == null)
+            if(Game.mosterQueue.Peek == null)
             {
                 Game.ChangeScene(Game.stack.Pop());
             }

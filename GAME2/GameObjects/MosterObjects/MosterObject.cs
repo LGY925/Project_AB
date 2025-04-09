@@ -12,24 +12,36 @@ namespace GAME2.GameObjects.MosterObjects
     {
         private ScreenLocal screen;
         
-        
         public ProductBuilder ProductBuilder;
         private string name;
         public int hp;
         public int ap;
         public Product product;
+        public MosterObject mosterObject;
+        
         
         
         public MosterObject(string name, int hp, int ap,
             char symbol, Vector position, Product product)
             : base(ConsoleColor.Red, symbol, position, true)
         {
+            this.name = name;
+
+            screen = ScreenLocal.Battle;
             this.product = product;
+            
         }
+
         public override void Interact(Player player)
         {
             Game.mosterQueue.Enqueue(this);
             Game.ChangeScene(screen);
+        }
+        public void MonsterInfor()
+        {
+            Console.WriteLine("{0}",name);
+            Console.WriteLine("{0}",hp);
+            Console.WriteLine();
         }
 
         public void Damage()
