@@ -15,8 +15,13 @@ namespace GAME2.Items
             effect = 10;
             use = true;
         }
+        public override void Add()
+        {
+            Console.Write("{0}이", name);
+        }
         public override void Interact(Player player)
         {
+            Console.WriteLine ("{0}만큼 체력이 회복됩니다",effect);
             player.Heal(effect);
         }
     }

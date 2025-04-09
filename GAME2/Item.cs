@@ -12,6 +12,7 @@ namespace GAME2
         public string name;
         protected int effect;
         public bool use;
+        public abstract void Add();
         public abstract void Interact(Player player);
         
     }

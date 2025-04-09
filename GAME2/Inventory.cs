@@ -8,26 +8,35 @@ using GAME2.Items;
 
 namespace GAME2
 {
-    internal class Inventory
+    public class Inventory
     {
+        private int size;
         private int[] items;
         private Item[] Item;
+        public Item[] ITems {  get{ return Item; }}
         private int gold;
         public int Gold { get { return gold; } set { gold = value; } }
         public Inventory()
         {
+            size = 4;
             gold = 0;
-            items = new int[4];
-            for (int i = 0; i < items.Length; i++) { items[i] = 0; }
-            Item = new Item[4];
+            items = new int[size];
+            for (int i = 0; i < items.Length; i++) 
+            {
+                items[i] = 0; 
+            }
+            Item = new Item[size];
             Item[0] = new RedPotion();
-            Item[1] = new PowerPotion();
+            Item[1] = new DefencePotion();
             Item[2] = new PowerPotion();
-            Item[3] = new DefencePotion();
+            Item[3] = new Key();
+            
         }
-        public void Add(Item item)
+        public void Add(int item,int rd)
         {
-            items[item.No] += 1;
+            items[item] += rd;
+            ITems[item].Add();
+            Console.WriteLine("{1}개수만큼 증가합니다",rd);
         }
         public void UseAt(int index)
         {
@@ -37,7 +46,7 @@ namespace GAME2
                 if (items[index] > 0)
                 {
                     Item[index].Interact(Game.Player);
-                    Console.WriteLine("{0} 포션을 사용합니다", Item[index].name);
+                    Console.WriteLine("{0} 사용합니다", Item[index].name);
                     items[index] -= 1;
                 }
                 else
@@ -45,14 +54,12 @@ namespace GAME2
                     Console.WriteLine("수량이 부족합니다");
                 }
             }
-            else
-            {
-                Console.WriteLine("다른걸 선택해주세요");
-            }
+ 
         }
         public void GetGold(int gold)
         {
             this.gold += gold;
+            Console.WriteLine("골드를 {0}G 획득했습니다",gold);
         }
         public void PrintALL()
         {

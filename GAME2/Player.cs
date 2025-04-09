@@ -21,6 +21,9 @@ namespace GAME2
 
         public bool[,] map;
 
+        private bool keyUsing;
+        public bool KeyUsing { get { return keyUsing; } }
+
         public Player()
         {
 
@@ -28,6 +31,7 @@ namespace GAME2
             cutHp = MaxHp;
             ap = 5;
             dp = 5;
+            keyUsing = false;
         }
         public void Action(ReadingKey key)
         {
@@ -82,16 +86,29 @@ namespace GAME2
             if (cutHp > maxHp)
             {
                 cutHp = maxHp;
+                Console.WriteLine("체력이 꽉 차있습니다");
             }
+            else
+            {
+                Console.WriteLine("현제채력이 {0} 입니다", cutHp);
+            }
+            ;
             
         }
+        public void BoxReady(bool Ready)
+        {
+            keyUsing = Ready;
+        }
+
         public void ApUp(int point)
         {
-            ap += point ;
+            ap += point;
+            Console.WriteLine("현제 {0} {1} 입니다 ", "공격력이", Ap);
         }
         public void DpUp(int point)
         {
             dp += point;
+            Console.WriteLine("현제 {0} {1} 입니다 ", "방어력이", Dp);
         }
     }
 }

@@ -28,6 +28,7 @@ namespace GAME2.Screens.Maps
             Mapping();
             gameObjects = new List<GameObject>();
             gameObjects.Add(new PotalObject(ScreenLocal.SpringField, 'S', new Vector(5, 2)));
+            gameObjects.Add(new BoxObject('B', new Vector(5, 7)));
         }
         public override void Enter()
         {

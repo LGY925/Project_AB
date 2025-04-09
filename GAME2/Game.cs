@@ -17,6 +17,9 @@ namespace GAME2
         public static ScreenLocal screen;
         private static Player player;
         public static Player Player { get { return player; } }
+        
+        private static Inventory inventory;
+        public static Inventory Inventory { get { return inventory; } }
         public static void Start()
         {
             Console.CursorVisible = false; // 커서 지우기 성공
