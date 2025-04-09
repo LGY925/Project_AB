@@ -33,6 +33,7 @@ namespace GAME2
             item[1] = new DefencePotion();
             item[2] = new PowerPotion();
             item[3] = new Key();
+            products = new List<Product>();
             
         }
         public void Add(int item,int rd)
@@ -57,7 +58,11 @@ namespace GAME2
                     Console.WriteLine("수량이 부족합니다");
                 }
             }
- 
+        }
+        public void GetProduct(Product product)
+        {
+            Console.WriteLine("{0}를/을 획득합니다", product.name);
+            this.products.Add(product);
         }
         public void GetGold(int gold)
         {
@@ -74,9 +79,16 @@ namespace GAME2
         }
         public void PrintProduct()
         {
-            for (int index = 0; index < products.Count; index++)
+            if (products != null)
             {
-                Console.WriteLine("{0}. {1} ", index, products[index].name);
+                for (int index = 0; index < products.Count; index++)
+                {
+                    Console.WriteLine("{0}. {1} ", index, products[index].name);
+                }
+            }
+            else 
+            {
+                Console.WriteLine("비어있음"); 
             }
         }
     }

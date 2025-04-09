@@ -13,7 +13,6 @@ namespace GAME2.Screens
         protected string[] mapData;
         protected bool[,] map;
         protected List<GameObject> gameObjects;
-        protected Stack<ScreenLocal> stack;
 
         public override void Render()
         {
@@ -29,11 +28,10 @@ namespace GAME2.Screens
         public override void Result(in ReadingKey key)
         {
             this.key = key;
-            
-
         }
         public override void Update()
         {
+            
             Game.Player.Action(key);
         }
 
@@ -43,7 +41,7 @@ namespace GAME2.Screens
         }
         public override void Next()
         {
-            Update();
+            
             foreach (GameObject go in gameObjects)
             {
                 if (go.position.x == Game.Player.position.x &&

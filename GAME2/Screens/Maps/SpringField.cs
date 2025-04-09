@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using GAME2.GameObjects;
 using GAME2.GameObjects.MosterObjects;
 
+
 namespace GAME2.Screens.Maps
 {
     public class SpringField : BaseMap
@@ -31,6 +32,7 @@ namespace GAME2.Screens.Maps
             gameObjects.Add(new PotalObject(ScreenLocal.Village, 'V', new Vector(2, 1)));
             gameObjects.Add(new PotalObject(ScreenLocal.DragonMountain, 'D', new Vector(8, 8)));
             MosterObjectFactory mosterFactory = new MosterObjectFactory();
+            mosterFactory.balance = 1;
             MosterObject sliemObject = mosterFactory.Create(MosterName.Slime,3,5);
             gameObjects.Add(sliemObject);
         }
@@ -50,6 +52,10 @@ namespace GAME2.Screens.Maps
                 Game.Player.position = new Vector(3, 5);
             }
             Game.Player.map = map;
+        }
+        public override void Exit()
+        {
+            
         }
 
 

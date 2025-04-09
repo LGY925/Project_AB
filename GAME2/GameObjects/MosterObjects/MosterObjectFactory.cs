@@ -8,11 +8,11 @@ using GAME2.Items.Products;
 
 namespace GAME2.GameObjects.MosterObjects
 {
-    internal class  MosterObjectFactory
+    public class  MosterObjectFactory
     {
         private MosterObject mosterObject;
         private MosterName mosterName;
-        private float balance;
+        public float balance;
         private Vector vector;
         
         private ProductBuilder productBuilder;
@@ -24,12 +24,13 @@ namespace GAME2.GameObjects.MosterObjects
             {
                 case MosterName.Slime:
                     productBuilder.NameSet("물컹물컹한 액체").NoSet(5);
-                    mosterObject = new MosterObject("슬라임", 100, 20, 'S',
-                        vector,productBuilder.Builder());
+                    mosterObject = new MosterObject("슬라임", 100, 5,
+                        productBuilder.Builder(),100,'S',vector);
                     break;
             }
             mosterObject.hp =(int)(mosterObject.hp * balance);
             mosterObject.ap = (int)(mosterObject.hp * balance);
+            mosterObject.gold = (int)(mosterObject.gold * balance);
             return mosterObject;
         }
 

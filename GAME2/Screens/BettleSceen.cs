@@ -13,12 +13,13 @@ namespace GAME2.Screens
 {
     internal class BettleSceen : Screen
     {
-        private MosterObject Monster;
+        private MosterObject monster;
         ReadingKey key;
         public override void Render()
         {
-            Monster = Game.mosterQueue.Peek();
-            Monster.MonsterInfor();
+            monster = Game.mosterQueue.Peek();
+            monster.MonsterInfor();
+            Console.WriteLine();
             Console.WriteLine();
             Game.Player.PrintStat();
             Console.WriteLine();
@@ -27,41 +28,40 @@ namespace GAME2.Screens
             Console.WriteLine("3. 도망");
 
         }
-        public override void Update()
-        {
-            switch (key)
-            {
-                case ReadingKey.One:
-                    Monster.Damage();
-                    break;
-                case ReadingKey.Two:
-                    Game.Inventory.UseAt(0);
-                    break;
-                case ReadingKey.Three:
-                    Console.WriteLine("도망갑니다.");
-                    Game.ChangeScene(Game.stack.Pop());
-                    break;
-            }
-        }
 
         public override void Result(in ReadingKey key)
         {
             this.key = key;
-            Update();
+        }
+        public override void Update()
+        {
+            Game.Player.Bettle(key, monster);
+            if (monster.hp > 0)
+            {
+                monster.Attack();
+
+            }
+            else
+            {
+                Console.WriteLine("{0} 가 죽었습니다", monster.name);
+                Game.Inventory.GetGold(monster.gold);
+                Game.Inventory.GetProduct(monster.product);
+            } 
         }
 
         public override void Wait()
         {
-            Monster.Attack();
-            Console.WriteLine("진행하려면 아무키나 눌러주세요.");
-            Console.ReadKey(true);
+            Utility.Loding();
+
         }
         public override void Next()
         {
-            if(Game.mosterQueue.Peek == null)
+            if (monster.hp <= 0)
             {
+                Game.mosterQueue.Dequeue();
                 Game.ChangeScene(Game.stack.Pop());
             }
+            
             
         }
     }

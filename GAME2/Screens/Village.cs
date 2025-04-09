@@ -4,6 +4,8 @@ using System.ComponentModel.Design;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using GAME2.Screens.Maps;
+using GAME2;
 
 namespace GAME2.Screens
 {
@@ -40,11 +42,28 @@ namespace GAME2.Screens
         {
             Utility.Loding();
         }
+        public override void Enter()
+        {
+            Game.screenDic.Remove(ScreenLocal.SpringField);
+            Game.screenDic.Remove(ScreenLocal.DragonMountain);
+            Game.screenDic.Remove(ScreenLocal.Battle);
+            Game.mosterQueue.Clear();
+            Game.stack.Clear();
+        }
+        public override void Exit()
+        {
+            Game.screenDic.Add(ScreenLocal.SpringField, new SpringField());
+            Game.screenDic.Add(ScreenLocal.DragonMountain, new DragonMountain());
+            Game.screenDic.Add(ScreenLocal.Battle, new BettleSceen());
+            Game.mosterQueue.Clear();
+            Game.stack.Clear();
+        }
         public override void Next()
         {
             switch (key)
             {
                 case ReadingKey.One:
+                    
                     Game.ChangeScene(ScreenLocal.SpringField);
                     break;
                 case ReadingKey.Two:

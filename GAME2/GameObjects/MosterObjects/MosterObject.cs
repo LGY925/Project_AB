@@ -13,20 +13,24 @@ namespace GAME2.GameObjects.MosterObjects
         private ScreenLocal screen;
         
         public ProductBuilder ProductBuilder;
-        private string name;
+        public string name;
         public int hp;
         public int ap;
+        public int gold;
         public Product product;
         public MosterObject mosterObject;
         
         
         
         public MosterObject(string name, int hp, int ap,
-            char symbol, Vector position, Product product)
+            Product product,int gold,char symbol, Vector position )
             : base(ConsoleColor.Red, symbol, position, true)
         {
             this.name = name;
-
+            this.hp = hp;
+            this.ap = ap;
+            this.product = product;
+            this.gold = gold;
             screen = ScreenLocal.Battle;
             this.product = product;
             
@@ -39,22 +43,22 @@ namespace GAME2.GameObjects.MosterObjects
         }
         public void MonsterInfor()
         {
-            Console.WriteLine("{0}",name);
-            Console.WriteLine("{0}",hp);
             Console.WriteLine();
+            Console.WriteLine("  이름 :  {0}",name);
+            Console.WriteLine("   HP  :  {0}",hp);
+            Console.WriteLine("       {0}    ",symbol);
+            Console.WriteLine("     {0} {1} {2}", symbol, symbol, symbol);
+            Console.WriteLine("       {0}    ", symbol);
         }
 
         public void Damage()
         {
             int attackDamage = Game.Player.Attack();
             hp -= attackDamage;
-            Console.WriteLine("{0} 의 체력은 : {1}",name,hp);
-            if (hp <= 0)
-            {
-                Console.WriteLine("{0} 이/가 죽었습니다");
-                Game.mosterQueue.Dequeue();
-            }
-
+            if(hp>0)
+                Console.WriteLine("{0} 의 체력은 : {1}",name,hp);
+            else 
+                Console.WriteLine("{0} 의 체력은 : {1}", name, 0);
         }
 
         public void Attack()
@@ -65,6 +69,7 @@ namespace GAME2.GameObjects.MosterObjects
             Console.WriteLine("플레이어를 공격합니다", attackDamage);
             Console.WriteLine("{0} 데미지", attackDamage);
             Game.Player.Damage(attackDamage);
+            
         }
 
         public void inforPrint()

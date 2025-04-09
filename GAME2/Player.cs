@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
+using GAME2.GameObjects.MosterObjects;
 
 namespace GAME2
 {
@@ -29,7 +31,7 @@ namespace GAME2
 
             maxHp = 100;
             cutHp = MaxHp;
-            ap = 5;
+            ap = 200;
             dp = 5;
             keyUsing = false;
         }
@@ -55,6 +57,30 @@ namespace GAME2
             if (map[targetPos.y, targetPos.x] == true)
             {
                 position = targetPos;
+            }
+        }
+
+        public void Bettle(ReadingKey key, MosterObject moster)
+        {
+            
+            switch (key)
+            {
+                case ReadingKey.One:
+                    moster.Damage();
+                    Utility.Loding();
+                    break;
+                case ReadingKey.Two:
+                    Game.Inventory.UseAt(0);
+                    Utility.Loding();
+                    break;
+                case ReadingKey.Three:
+                    Console.WriteLine("도망갑니다.");
+                    Utility.Loding();
+                    Game.mosterQueue.Dequeue();
+                    Game.ChangeScene(Game.stack.Pop());
+                    break;
+                default:
+                    break;
             }
         }
         public void PrintStat()
@@ -88,11 +114,13 @@ namespace GAME2
             Console.WriteLine("{0} 만큼 방어합니다", dp);
             cutHp -= monsterDamge;
             Console.WriteLine("{0} 데미지",monsterDamge);
-            Console.WriteLine("HP가 {0} 남았습니다", cutHp);
-            if (cutHp < 0)
+            if (cutHp <= 0)
             {
+                Console.WriteLine("HP가 {0} 남았습니다", 0);
+                Utility.Loding();
                 Game.GameOver("당신은 죽었습니다");
-            }    
+            }
+            else { Console.WriteLine("HP가 {0} 남았습니다", cutHp); }
         }
         public void Heal(int amountp)
         {

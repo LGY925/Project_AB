@@ -15,7 +15,7 @@ namespace GAME2
     {
         
         private static bool gameEnd;
-        private static Dictionary<ScreenLocal, Screen> screenDic;
+        public static Dictionary<ScreenLocal, Screen> screenDic;
         private static Screen curSceen;
         public static ScreenLocal screen;
         private static Player player;
@@ -39,9 +39,6 @@ namespace GAME2
             screenDic = new Dictionary<ScreenLocal, Screen>();
             screenDic.Add(ScreenLocal.Main,new MainSceen());
             screenDic.Add(ScreenLocal.Village, new Village());
-            screenDic.Add(ScreenLocal.SpringField, new SpringField());
-            screenDic.Add(ScreenLocal.DragonMountain, new DragonMountain());
-            screenDic.Add(ScreenLocal.Battle, new BettleSceen());
 
             curSceen = screenDic[ScreenLocal.Main];
         }
@@ -53,6 +50,7 @@ namespace GAME2
                 curSceen.Render();
                 Utility.ReadKey(out ReadingKey key);
                 curSceen.Result(key);
+                curSceen.Update();
                 curSceen.Wait();
                 curSceen.Next();
             }
