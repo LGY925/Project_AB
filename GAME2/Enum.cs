@@ -8,10 +8,15 @@ namespace GAME2
 {
     public enum ScreenLocal
     {
-        Main, Village, Shop, SpringField, DragonMountain, Map3, Inven
+        Main, Village, Shop, SpringField, DragonMountain, Map3, Inven,
+        Battle
     }
     public enum ReadingKey
     {
         None, One, Two, Three, Foer, Inven, Up, Down, Left, Right, ESC
+    }
+    public enum MosterName
+    {
+        None, Slime
     }
 }

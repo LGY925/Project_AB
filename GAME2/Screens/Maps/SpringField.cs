@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using GAME2.GameObjects;
+using GAME2.GameObjects.MosterObjects;
 
 namespace GAME2.Screens.Maps
 {
@@ -29,6 +30,9 @@ namespace GAME2.Screens.Maps
             gameObjects = new List<GameObject>();
             gameObjects.Add(new PotalObject(ScreenLocal.Village, 'V', new Vector(2, 1)));
             gameObjects.Add(new PotalObject(ScreenLocal.DragonMountain, 'D', new Vector(8, 8)));
+            MosterObjectFactory mosterFactory = new MosterObjectFactory();
+            MosterObject sliemObject = mosterFactory.Create(MosterName.Slime,3,5);
+            gameObjects.Add(sliemObject);
         }
 
         public override void Enter()

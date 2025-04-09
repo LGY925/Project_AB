@@ -71,10 +71,16 @@ namespace GAME2
             Random random = new();
             int attackDamage = random.Next(ap/2,ap*2);
             monsterHp -= attackDamage;
+            Console.WriteLine("플레이어가 공격합니다",attackDamage);
+            Console.WriteLine("{0} 데미지", attackDamage);
         }
         public void Damage(int monsterAp)
         {
-            cutHp -= monsterAp - dp;
+            int monsterDamge = monsterAp - dp;
+            Console.WriteLine("{0} 만큼 방어합니다", dp);
+            cutHp -= monsterDamge;
+            Console.WriteLine("{0} 데미지",monsterDamge);
+            Console.WriteLine("HP가 {0} 남았습니다", cutHp);
             if (cutHp < 0)
             {
                 Game.GameOver("당신은 죽었습니다");

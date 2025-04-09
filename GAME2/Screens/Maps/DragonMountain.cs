@@ -38,5 +38,9 @@ namespace GAME2.Screens.Maps
             }
             Game.Player.map = map;
         }
+        public override void Exit()
+        {
+            
+        }
     }
 }

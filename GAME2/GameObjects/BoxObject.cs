@@ -9,7 +9,7 @@ namespace GAME2.GameObjects
     public class BoxObject : GameObject
     {
         
-        public BoxObject( char symbol, Vector position)
+        public  BoxObject( char symbol, Vector position)
            : base(ConsoleColor.Cyan, symbol, position, false)
         {
             

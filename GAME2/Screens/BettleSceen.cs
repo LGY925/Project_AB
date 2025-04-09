@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace GAME2.Screens
 {
-    public class InventorySceen : Screen
+    internal class BettleSceen : Screen
     {
-
-        public override void Render()
+        public override void Next()
         {
             
         }
-        public override void Wait()
+
+        public override void Render()
         {
             
         }
@@ -22,10 +22,10 @@ namespace GAME2.Screens
         {
             
         }
-        public override void Next()
+
+        public override void Wait()
         {
             
         }
-
     }
 }
