@@ -47,10 +47,6 @@ namespace GAME2
                 case ConsoleKey.DownArrow:
                     key = ReadingKey.Down;
                     break;
-                case ConsoleKey.Escape:
-                    Game.EndSwich();
-                    break;
-
 
             }
 

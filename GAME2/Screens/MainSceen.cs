@@ -55,11 +55,17 @@ namespace GAME2.Screens
                 case ReadingKey.Three:
                     Game.EndSwich();
                     break;
-
-
             }
         }
-
+        public override void Enter()
+        {
+            Game.screenDic.Remove(ScreenLocal.Village);
+            Game.Start();
+        }
+        public override void Exit()
+        {
+            Game.screenDic.Add(ScreenLocal.Village, new Village());
+        }
 
 
     }

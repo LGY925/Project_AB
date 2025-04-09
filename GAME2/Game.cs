@@ -38,8 +38,7 @@ namespace GAME2
 
             screenDic = new Dictionary<ScreenLocal, Screen>();
             screenDic.Add(ScreenLocal.Main,new MainSceen());
-            screenDic.Add(ScreenLocal.Village, new Village());
-
+            
             curSceen = screenDic[ScreenLocal.Main];
         }
         public static void Run()

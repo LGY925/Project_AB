@@ -79,8 +79,6 @@ namespace GAME2
                     Game.mosterQueue.Dequeue();
                     Game.ChangeScene(Game.stack.Pop());
                     break;
-                default:
-                    break;
             }
         }
         public void PrintStat()
