@@ -40,6 +40,18 @@ namespace GAME2
             Vector targetPos = position;
             switch (key)
             {
+                case ReadingKey.One:
+                    Game.Inventory.UseAt(0);
+                    break;
+                case ReadingKey.Two:
+                    Game.Inventory.UseAt(1);
+                    break;
+                case ReadingKey.Three:
+                    Game.Inventory.UseAt(2);
+                    break;
+                case ReadingKey.Foer:
+                    Game.Inventory.UseAt(3);
+                    break;
                 case ReadingKey.Up:
                     targetPos.y--;
                     break;
@@ -60,15 +72,32 @@ namespace GAME2
             }
         }
 
-        public void Bettle(ReadingKey key, MosterObject moster)
+        public void Bettle(ReadingKey key, MosterObject monster)
         {
             
             switch (key)
             {
                 case ReadingKey.One:
-                    moster.Damage();
+                    monster.Damage();
                     Utility.Loding();
-                    break;
+                    
+                    if (monster.hp > 0)
+                    {
+                        monster.Attack();
+                        break;
+                    }
+                    else
+                    {
+                        Console.WriteLine("{0} 가 죽었습니다", monster.name);
+                        Game.Inventory.GetGold(monster.gold);
+                        Game.Inventory.GetProduct(monster.product);
+                        Random random = new Random();
+                        int rd = random.Next(0, 4);
+                        Game.Inventory.Add(rd, 1);
+                        break;
+                    }
+            
+            
                 case ReadingKey.Two:
                     Game.Inventory.UseAt(0);
                     Utility.Loding();
@@ -76,8 +105,6 @@ namespace GAME2
                 case ReadingKey.Three:
                     Console.WriteLine("도망갑니다.");
                     Utility.Loding();
-                    Game.mosterQueue.Dequeue();
-                    Game.ChangeScene(Game.stack.Pop());
                     break;
             }
         }

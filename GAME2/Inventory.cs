@@ -39,23 +39,25 @@ namespace GAME2
         public void Add(int item,int rd)
         {
             itemsCount[item] += rd;
-            Items[item].Add();
-            Console.WriteLine("{1}개수만큼 증가합니다",rd);
+            Console.WriteLine("{0} 가 {1}개수만큼 증가합니다", Items[item].name,rd);
         }
         public void UseAt(int index)
         {
             
             if (item[index].use == true)
             {
+                Console.SetCursorPosition(15, 21 );
                 if (itemsCount[index] > 0)
                 {
                     item[index].Interact(Game.Player);
                     Console.WriteLine("{0} 사용합니다", item[index].name);
                     itemsCount[index] -= 1;
+                    Utility.Loding();
                 }
                 else
                 {
                     Console.WriteLine("수량이 부족합니다");
+                    Utility.Loding();
                 }
             }
         }
@@ -71,10 +73,13 @@ namespace GAME2
         }
         public void PrintALL()
         {
+            
             for (int i = 0; i < itemsCount.Length; i++)
             {
-                Console.WriteLine("{0} : {1} 개",item[i].name,itemsCount[i]);
+                Console.SetCursorPosition(15, 15+i);
+                Console.WriteLine("{0}. {1} : {2} 개",i+1,item[i].name,itemsCount[i]);
             }
+            Console.SetCursorPosition(15, 20);
             Console.WriteLine("Gold : {0}G",gold);
         }
         public void PrintProduct()

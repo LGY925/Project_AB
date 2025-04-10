@@ -16,13 +16,14 @@ namespace GAME2.Screens
 
         public override void Render()
         {
+            Game.Inventory.PrintALL();
             PrintMap();
             foreach (GameObject go in gameObjects)
             {
                 go?.Print();
             }
             Game.Player.PrintPlayer();
-
+            
         }
 
         public override void Result(in ReadingKey key)

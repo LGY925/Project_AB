@@ -18,12 +18,14 @@ namespace GAME2.GameObjects
         {
             if( player.KeyUsing == true)
             {
+                Console.SetCursorPosition(0, 10);
                 Random random = new Random();
                 int rd = random.Next(0, 2);
                 Game.Inventory.Add(rd,rd);
-               
+                
                 rd = random.Next(0, 100);
                 Game.Inventory.GetGold(rd);
+                Utility.Loding();
                 this.isOnce = true;
             }
             

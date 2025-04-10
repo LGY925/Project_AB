@@ -35,20 +35,8 @@ namespace GAME2.Screens
         }
         public override void Update()
         {
-            Game.Player.Bettle(key, monster);
-            if (monster.hp > 0)
-            {
-                monster.Attack();
-
-            }
-            else
-            {
-                Console.WriteLine("{0} 가 죽었습니다", monster.name);
-                Game.Inventory.GetGold(monster.gold);
-                Game.Inventory.GetProduct(monster.product);
-            } 
+            Game.Player.Bettle(key,monster);
         }
-
         public override void Wait()
         {
             Utility.Loding();
@@ -56,7 +44,8 @@ namespace GAME2.Screens
         }
         public override void Next()
         {
-            if (monster.hp <= 0)
+            if (monster.hp <= 0 ||
+                key == ReadingKey.Three)
             {
                 Game.mosterQueue.Dequeue();
                 Game.ChangeScene(Game.stack.Pop());
